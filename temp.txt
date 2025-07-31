@@ -1,0 +1,27 @@
+
+    '''
+    self.__data["firstname"]=fname
+    self.__data["lastname"]=lname
+    self.dobdate = datetime.datetime(int(dob[6:10]),int(dob[3:5]),int(dob[0:2]))
+    self.today = datetime.datetime.now()
+    self.__data["dob"]=dob
+    self.__data["gender"]=gender
+    self.__data["blood_group"]=blood
+    self.__data["age"] = self.today.year - self.dobdate.year - ((self.today.month, self.today.day)<(self.dobdate.month, self.dobdate.day))
+    self.__data["registered_date"]=self.today
+    self.flag=True
+    self.addContact()
+    self.addHistory()
+
+    self.__data["contact"]=con
+    self.__data["email"]=em
+    self.__data["address"]=add
+    self.__data["emergency_contact"]=econ
+    
+    self.__data["medical_history"]=mhis
+    self.__data["current_medications"]=cmed
+    self.__data["status"]=stat
+    self.__data["insurance_details"]=insdet
+    self.__data["disease"]=dis
+    self.__data["last_visited_doctor"]=lvd
+    '''

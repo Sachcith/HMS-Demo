@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Appointment</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/AppointmentShow/{{appointment.AppId}}" method="POST">
+        <center>
+        <h1>See Appointment</h1>
+        <div class="flex-container">
+            <div class="box">
+                <table border="3px" cellpadding="14px" height="450px">
+                    <tr><td colspan="2"><strong><em>Doctor Details</em></strong></td></tr>
+                    <tr><td>Appointment Id : </td><td><p id="aid">{{appointment.AppId}}</p></td></tr>
+                    <tr><td>Doctor Id : </td><td><p id="did">{{appointment.DocId}}</p></td></tr>
+                    <tr><td>Patient Id : </td><td><p id="pid">{{appointment.PatId}}</p></td></tr>
+                    <tr><td>Visit Reason : </td><td><p id="vreason">{{appointment.visitReason}}</p></td></tr>
+                    <tr><td>Priority Level : </td><td><p id="plevel">{{appointment.priority}}</p></td></tr>
+                    <tr><td>Visit Type : </td><td><p id="vtype">{{appointment.visitType}}</p></td></tr>
+                    <tr><td>Status : </td><td><p id="status">{{appointment.status}}</p></td></tr>
+                    <tr><td>Appointment Details : </td><td><p id="appdetail">{{appointment.AppDT}}</p></td></tr>
+                </table>
+            </div>    
+        </div>
+            <br>
+            <button type="submit">Hospital</button>
+        </center>
+    </form>
+<style>
+    .flex-container{
+        display:flex;
+        flex-direction: row;
+        gap:20px;
+        justify-content: center;
+    }
+    .flex-container-col{
+        display:flex;
+        flex-direction: column;
+    }
+    .box{
+        height:100%;
+    }
+</style>
+{% endblock%}

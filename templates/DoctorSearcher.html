@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Doctor Searcher</title>
+{% endblock %}
+{% block body %}
+    <form action="/DoctorSearcher" method="POST">
+        <center>
+        <table>
+            {% for i in range(length) %}
+            <tr>
+                {% for j in range(width) %}
+                {% if A[i][j] == 0 %}
+                    <td style="background-color: rgb(50,50,50)">{{length*i+j+1}}</td>
+                {% elif A[i][j]=="D" %}
+                    <td style="background-color: blue">{{length*i+j+1}}</td>
+                {% elif A[i][j]==1 %}
+                    <td style="background-color: {{colorthing}}">{{length*i+j+1}}</td> 
+                {% elif A[i][j]==length*width %}
+                    <td style="background-color: green">{{length*i+j+1}}</td>   
+                {% else %}
+                    <td style="background-color: {{othercolorthing}};">{{length*i+j+1}}</td> 
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit">Hospital</button>
+        </center>
+    </form>
+    <form action="/DoctorSearcherAnimate" method="POST">
+        <center>
+            <input type="number" id="x" name="x" placeholder="Enter box number">
+            <button type="submit">Animate</button>
+        </center>
+    </form>
+    <form action="/ResetSearcher" method="POST">
+        <center>
+            <button type="submit">Reset</button>
+        </center>
+    </form>
+    <form action="/RandomHospital" method="POST">
+        <center>
+            <input type="number" id="size" name="size" placeholder="Enter Random Size">
+            <button type="submit">Random</button>
+        </center>
+    </form>
+    {% if distance !=-1 %}
+    <center><h4>Distance of nearest Doctor: {{distance}}</h2></center>
+    {% endif %}
+    <style>
+        table{
+            border:5px solid black;
+            padding:3px;
+        }
+        td{
+            border: 2px solid black;
+            color: transparent;
+            height:30px;
+            width:30px;
+            text-align: center;
+        }
+        body{
+            background-color: rgb(255,255,255);
+        }
+    </style>
+{% endblock %}

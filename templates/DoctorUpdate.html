@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Doctor</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/DoctorUpdate/{{doctor.id}}" method="POST">
+        <center>
+        <h1>See Patient</h1>
+        <div class="flex-container">
+            <div class="box">
+                <table border="3px" cellpadding="14px" height="450px">
+                    <tr><td colspan="2"><strong><em>Update Doctor Details</em></strong></td></tr>
+                    <tr><td>First Name : </td><td><input type="text" id="fname" name="fname" placeholder="Firstname" value="{{doctor.firstname}}"></td></tr>
+                    <tr><td>Last Name : </td><td><input type="text" id="lname" name="lname" placeholder="Lastname" value="{{doctor.lastname}}"></td></tr>
+                    <tr><td>Gender : </td><td><input type="radio" id="gender1" name="gen" value="Male" checked>Male 
+                        <input type="radio" id="gender2" name="gen" value="Female">Female
+                        <input type="radio" id="gender3" name="gen" value="Other">Other</td>
+                    </tr>
+                    <tr><td>Specialization : </td><td><input type="text" id="spec" name="spec" placeholder="Specialization" value="{{doctor.specialization}}"></td></tr>
+                    <tr><td>Status : </td><td><input type="radio" id="stat1" name="stat" placeholder="Status" value="Yes" checked>Yes
+                        <input type="radio" id="stat1" name="stat" placeholder="Status" value="No">No</td></tr>
+                    <tr><td>Contact : </td><td><input type="number" id="con" name="con" placeholder="Contact" value="{{doctor.contact}}"></td></tr>
+                    <tr><td>Email : </td><td><input type="text" id="em" name="em" placeholder="Email" value="{{doctor.email}}"></td></tr>
+                </table>
+            </div>    
+        </div>
+            <br>
+            <button type="submit">Hospital</button>
+        </center>
+    </form>
+<style>
+    .flex-container{
+        display:flex;
+        flex-direction: row;
+        gap:20px;
+        justify-content: center;
+    }
+    .flex-container-col{
+        display:flex;
+        flex-direction: column;
+    }
+    .box{
+        height:100%;
+    }
+</style>
+{% endblock%}

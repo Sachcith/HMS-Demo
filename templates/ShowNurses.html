@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Nurse Dashboard</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/ShowNurse" method="POST">
+        <center>
+        <h1>Nurses</h1>
+        <table border="3px">
+            <tr><td>Nurse Id</td><td>Name</td><td>Doctor Id</td><td>Status</td></tr>
+            {% for nurse in nurses %}
+            <tr><td><p  id="nid" name="nid">{{nurse.id}}</td>
+            <td><p  id="Nname" name="Nname">{{nurse.name}}</td>
+            <td><p  id="eid" name="eid">{{nurse.did}}</td>
+            <td><p  id="statu" name="statu">{{nurse.status}}</td>
+            {% endfor %}
+        </table>
+        <br>
+        <button type="submit">Push</button>
+    </center>
+    </form>
+    <form action="/DeleteNurse" method="POST">
+        <br>
+        <center>
+        <button type="submit">Pop</button>
+        </center>
+    </form>
+    <form action="/Home" method="POST">
+        <br>
+        <center>
+        <button type="submit">Hospital</button>
+        </center>
+    </form>
+<style>
+
+</style>
+{% endblock %}

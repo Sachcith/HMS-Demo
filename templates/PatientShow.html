@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Patient</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/PatientShow/{{patient.id}}" method="POST">
+        <center>
+        <h1>See Patient</h1>
+        <div class="flex-container">
+            <div class="box">
+                <table border="3px" cellpadding="14px" height="450px">
+                    <tr><td colspan="2"><strong><em>Enter Details</em></strong></td></tr>
+                    <tr><td>First Name : </td><td><p id="fname">{{patient.firstname}}</p></td></tr>
+                    <tr><td>Last Name : </td><td><p id="lname">{{patient.lastname}}</p></td></tr>
+                    <tr><td>Gender : </td><td><p id="gender">{{patient.gender}}</p></td></tr>
+                    <tr><td>Blood Group : </td><td><p id="blood">{{patient.blood_group}}</p></td></tr>
+                    <tr><td>Registered Date : </td><td><p id="dob">{{patient.registered_date}}</p></td></tr>
+                </table>
+            </div>
+            <div class="flex-container-col">
+            <div class="box">
+                <table border="3px" height="225px" width="330px">
+                    <tr><td colspan="2"><strong><em>Contact Details</em></strong></td></tr>
+                    <tr><td>Contact Number : </td><td><p type="number" id="con" placeholder="Mobile">{{patient.contact}}</p></td></tr>
+                    <tr><td>Email Id : </td><td><p type="text" id="em" placeholder="email@provider.com">{{patient.email}}</p></td></tr>
+                    <tr><td>Address : </td><td><p id="add">{{patient.address}}</p></td></tr>
+                    <tr><td>Emergency Contact : </td><td><p  id="con" placeholder="Mobile">{{patient.address}}</p></td></tr>
+                </table>
+            </div>
+            <div class="box">
+                <table border="3px" height="225px" width="330px">
+                <tr><td colspan="2"><strong><em>Medical History</em></strong></td></tr>
+                <tr><td>Current Medications : </td><td><p id="cmed"></p>{{patient.current_medications}}</p></td></tr>
+                <tr><td>Status: </td><td><p id="stat"></p>{{patient.status}}</p></td></tr>
+                <tr><td>Insurance Details : </td><td><p id="insdet"></p>{{patient.insurance}}</p></td></tr>
+                <tr><td>Disease : </td><td><p id="dis"></p>{{patient.disease}}</p></td></tr>
+                </table>
+            </div>
+            </div>
+            </div>
+            <br>
+            <button type="submit">Hospital</button>
+        </center>
+    </form>
+<style>
+    .flex-container{
+        display:flex;
+        flex-direction: row;
+        gap:20px;
+        justify-content: center;
+    }
+    .flex-container-col{
+        display:flex;
+        flex-direction: column;
+    }
+    .box{
+        height:100%;
+    }
+</style>
+{% endblock%}

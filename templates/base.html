@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %}
+</body>
+<style>
+    td,th{
+        border-radius: 3px;
+        text-align: center;
+        vertical-align: middle;
+        background-color: rgb(200,200,200);
+    }
+    table{
+        border-radius: 5px;
+        background-color: rgb(50,50,50);
+        border-color: transparent;
+        border-spacing: 5px
+    }
+    button{
+        width:100px;
+        transition-duration: 0.5s;
+        background-color: rgb(200,200,200);
+        border: 2px solid black;
+        border-radius: 4px;
+    }
+    button:hover{
+        background-color: rgb(45,45,45);
+        color:white;
+        transition-duration: 0.5s;
+    }
+    
+    table button{
+        width:100px;
+        transition-duration: 0.5s;
+        background-color: transparent;
+        border: transparent;
+        border-radius: 4px;
+    }
+    table button:hover{
+        background-color: rgb(45,45,45);
+        color:white;
+        transition-duration: 0.5s;
+    }
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-image:linear-gradient(to bottom,#B5F391,#54A493);
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    input{
+        background-color: rgb(200,200,200);
+    }
+</style>
+</html>

@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Hospital Management System</title>
+{% endblock %}
+{% block body %}
+    <h1 align="center">Hospital Management System</h2>
+    <div class="flex-container">
+        <div class="tabular">
+        <h4>Patient Table</h4>
+        {% if patients|length >= 1 %}
+        <table border="3px">
+            <tr>
+                <th>Patient Id</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Registered Date</th>
+                <th>Options</th>
+            </tr>
+            {% for patient in patients %}
+            <tr>
+                <td>{{patient.id}}</td>
+                <td>{{patient.firstname}}</td>
+                <td>{{patient.contact}}</td>
+                <td>{{patient.registered_date}}</td>
+                <td>
+                    <a href="/PatientShow/{{patient.id}}"><button>View</button></a>
+                    <br>
+                    <a href="/PatientUpdate/{{patient.id}}"><button>Update</button></a>
+                    <br>
+                    <a href="/Delete/{{patient.id}}"><button>Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <table><tr><td>No Patient Data Available</td></tr></table>
+        {% endif %}
+        </div>
+        <div class="tabular"><h4>Doctor Table</h4>
+            {% if doctors|length >= 1 %}
+            <table border="3px">
+                <tr>
+                    <th>Doctor Id</th>
+                    <th>Name</th>
+                    <th>Speciality</th>
+                    <th>Available</th>
+                    <th>Options</th>
+                </tr>
+                {% for doctor in doctors %}
+                <tr>
+                    <td>{{doctor.id}}</td>
+                    <td>{{doctor.firstname}}</td>
+                    <td>{{doctor.specialization}}</td>
+                    <td>{{doctor.status}}</td>
+                    <td>
+                        <a href="/DoctorShow/{{doctor.id}}"><button>View</button></a>
+                        <br>
+                        <a href="/DoctorUpdate/{{doctor.id}}"><button>Update</button></a>
+                        <br>
+                        <a href="/DeleteDoctor/{{doctor.id}}"><button>Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <table><tr><td>No Doctor Data Available</td></tr></table>
+            {% endif %}<br>
+            <a href="/DoctorEntry"><button>Add Doctor</button></a>
+            <a href="/ShowNurse"><button>Show Nurse</button></a>
+            <form action="/RandomDoctor" method="POST">
+                <input type="number" placeholder="No of Random Doctors" id="RandDoc" name="RandDoc" value="1">
+                <button type="submit">Random Doctors</button>
+            </form>
+        </div>
+<!--#####################################################################################################################################################################-->
+        <div class="tabular"><h4>Appointment Table</h4>
+            {% if appointments|length >= 1 %}
+            <table border="3px">
+                <tr>
+                    <th>Appointment Id</th>
+                    <th>Doctor Id</th>
+                    <th>Patient Id</th>
+                    <th>Priority</th>
+                    <th>Options</th>
+                </tr>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{appointment.AppId}}</td>
+                    <td>{{appointment.DocId}}</td>
+                    <td>{{appointment.PatId}}</td>
+                    <td>{{appointment.priority}}</td>
+                    <td>
+                        <a href="/AppointmentShow/{{appointment.AppId}}"><button>View</button></a>
+                        <br>
+                        <a href="/AppointmentUpdate/{{appointment.AppId}}"><button>Update</button></a>
+                        <br>
+                        <a href="/AppointmentDelete/{{appointment.AppId}}"><button>Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <table><tr><td>No Appointment Data Available</td></tr></table>
+            {% endif %}
+            <br>
+            <a href="/AddAppointment"><button>Add Appointment</button></a>
+            <form action="/AppointmentDeletePriority" method="POST">
+                <br>
+                <button type="submit">Let Patient In</button>
+            </form>
+            <!--<form action="/RandomAppointment" method="POST">
+                <input type="number" placeholder="No of Random Doctors" id="RandApp" name="RandApp" value="1">
+                <button type="submit">Random Appointments</button>
+            </form>-->
+        </div>
+    </div>
+    <a href="/PatientEntry"><button>New Patient</button></a><br><br>
+    <form action="/RandomPatient" method="POST">
+        <input type="number" placeholder="No of Random Patients" id="randnum" name="randnum" value="1">
+        <button type="submit">Random Patients</button>
+    </form>
+    <br>
+    <a href="/DoctorSearcher"><button>Doctor Searcher</button></a>
+    <style>
+        .flex-container{
+            display:flex;
+            flex-direction: row;
+        }
+        .tabular{
+            padding:20px;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Patient Entry</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/PatientEntry" method="POST">
+        <center>
+        <h1>Patient Entry</h1>
+        <table border="3px">
+            <tr><td colspan="2">Enter Details</td></tr>
+            <tr><td>First Name : </td><td><input type="text" id="fname" name="fname" placeholder="First Name"></td></tr>
+            <tr><td>Last Name : </td><td><input type="text" id="lname" name="lname" placeholder="Last Name"></td></tr>
+            <tr><td>Gender : </td><td><input type="radio" id="gender1" name="gender" value="Male" checked>Male 
+            <input type="radio" id="gender2" name="gender" value="Female">Female
+            <input type="radio" id="gender3" name="gender" value="Other">Other</td></tr>
+            <tr><td>Blood Group : </td><td><input type="text" id="blood" name="blood" placeholder="BG_RH"></td></tr>
+            <tr><td>DOB : </td><td><input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy"></td></tr>
+        </table>
+        <br>
+        <button type="submit">Push</button>
+    </center>
+    </form>
+<style>
+    .flex-container{
+        display:flex;
+        flex-direction: row;
+        gap:20px;
+    }
+    .flex-container-col{
+        display:flex;
+        flex-direction: column;
+        gap:20px;
+    }
+</style>
+{% endblock %}

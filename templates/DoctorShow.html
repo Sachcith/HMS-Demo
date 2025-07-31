@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Doctor</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/DoctorShow/{{doctor.id}}" method="POST">
+        <center>
+        <h1>See Patient</h1>
+        <div class="flex-container">
+            <div class="box">
+                <table border="3px" cellpadding="14px" height="450px">
+                    <tr><td colspan="2"><strong><em>Doctor Details</em></strong></td></tr>
+                    <tr><td>First Name : </td><td><p id="fname">{{doctor.firstname}}</p></td></tr>
+                    <tr><td>Last Name : </td><td><p id="lname">{{doctor.lastname}}</p></td></tr>
+                    <tr><td>Gender : </td><td><p id="gender">{{doctor.gender}}</p></td></tr>
+                    <tr><td>Specialization : </td><td><p id="blood">{{doctor.specialization}}</p></td></tr>
+                    <tr><td>Status : </td><td><p id="dob">{{doctor.status}}</p></td></tr>
+                    <tr><td>Contact : </td><td><p id="dob">{{doctor.contact}}</p></td></tr>
+                    <tr><td>Email : </td><td><p id="dob">{{doctor.email}}</p></td></tr>
+                </table>
+            </div>    
+        </div>
+            <br>
+            <button type="submit">Hospital</button>
+        </center>
+    </form>
+<style>
+    .flex-container{
+        display:flex;
+        flex-direction: row;
+        gap:20px;
+        justify-content: center;
+    }
+    .flex-container-col{
+        display:flex;
+        flex-direction: column;
+    }
+    .box{
+        height:100%;
+    }
+</style>
+{% endblock%}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Appointment</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/AppointmentUpdate/{{appointment.AppId}}" method="POST">
+        <center>
+        <h1>See Appointment</h1>
+        <div class="flex-container">
+            <div class="box">
+                <table border="3px" cellpadding="14px" height="450px">
+                    <tr><td colspan="2"><strong><em>Doctor Details</em></strong></td></tr>
+                    <tr><td>Doctor Id : </td><td><input id="did" name="did" value={{appointment.DocId}}></td></tr>
+                    <tr><td>Patient Id : </td><td><input id="pid" name="pid" value={{appointment.PatId}}></td></tr>
+                    <tr><td>Visit Reason : </td><td><input id="vreason" name="vreason" value={{appointment.visitReason}}></td></tr><tr><td>Priority Level : </td><td><input type="radio" id="plevel1" name="plevel" value="1" checked>1
+                        <input type="radio" id="plevel2" name="plevel" value="2">2
+                        <input type="radio" id="plevel3" name="plevel" value="3">3</td>
+                    </tr>
+                    <tr><td>Visit Type : </td><td><input id="vtype" name="vtype" value={{appointment.visitType}}></td></tr>
+                    <tr><td>Status : </td><td><input id="status" name="status" value={{appointment.status}}></td></tr>
+                    <tr><td>Appointment Details : </td><td><input id="appdetail" name="appdetail" value={{appointment.AppDT}}></td></tr>
+                </table>
+            </div>    
+        </div>
+            <br>
+            <button type="submit">Hospital</button>
+        </center>
+    </form>
+<style>
+    .flex-container{
+        display:flex;
+        flex-direction: row;
+        gap:20px;
+        justify-content: center;
+    }
+    .flex-container-col{
+        display:flex;
+        flex-direction: column;
+    }
+    .box{
+        height:100%;
+    }
+</style>
+{% endblock%}

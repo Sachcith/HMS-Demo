@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Appointment Entry</title>
+{% endblock%}
+
+{% block body %}
+    <form action="/AddAppointment" method="POST">
+        <center>
+        <h1>Appointment Entry</h1>
+        <table border="3px">
+            <tr><td colspan="2">Enter Details</td></tr>
+            <tr><td>Doctor Id : </td><td><input type="text" id="did" name="did" placeholder="Doctor Id"></td></tr>
+            <tr><td>Patient Id : </td><td><input type="text" id="pid" name="pid" placeholder="Patient Id"></td></tr>
+            <tr><td>Visit Reason : </td><td><input type="text" id="vreason" name="vreason" placeholder="Visit Reason"></td></tr>
+            <tr><td>Priority Level : </td><td><input type="radio" id="plevel1" name="plevel" value="1" checked>1
+                <input type="radio" id="plevel2" name="plevel" value="2">2
+                <input type="radio" id="plevel3" name="plevel" value="3">3</td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Push</button>
+    </center>
+    </form>
+<style>
+    .flex-container{
+        display:flex;
+        flex-direction: row;
+        gap:20px;
+    }
+    .flex-container-col{
+        display:flex;
+        flex-direction: column;
+        gap:20px;
+    }
+</style>
+{% endblock %}
